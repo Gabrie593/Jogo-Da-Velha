@@ -30,8 +30,8 @@ jogada = 1
 while jogada < 9:
     # checando se tem vitória ou velha #
     win = False
-    vitoriax = ['X', 'X', 'X']
-    vitoriao = ['O', 'O', 'O']
+    vitoriax = ('X', 'X', 'X')
+    vitoriao = ('O', 'O', 'O')
     if (board[0]) == (vitoriax) or (board[1]) == (vitoriax) or (board[2]) == (vitoriax):
         print ("X won!")
         win = True
@@ -56,7 +56,7 @@ while jogada < 9:
         print ("O won!")
         win = True
         break
-    if win = False and jogada >= 7:
+    if win == False and jogada == 9:
         print ("It's a draw!")
         break
     if (jogada % 2) != 0:
@@ -76,6 +76,11 @@ while jogada < 9:
     else:
         board[movel][movec] = (caracter)
         jogada = jogada + 1
+        collumn1 = (board[0][0]), (board[1][0]), (board[2][0])
+        collumn2 = (board[0][1]), (board[1][1]), (board[2][1])
+        collumn3 = (board[0][2]), (board[1][2]), (board[2][2])
+        diagonal1 = (board[0][0]), (board[1][1]), (board[2][2])
+        diagonal2 = (board[0][2]), (board[1][1]), (board[2][0])
 
         print (board[0])
         print (board[1])
