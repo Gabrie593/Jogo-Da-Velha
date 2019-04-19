@@ -28,16 +28,36 @@ else:
 jogada = 1
 # indicar se é a vez do X ou da O #
 while jogada < 9:
-    # checando se tem vitória #
+    # checando se tem vitória ou velha #
+    win = False
     vitoriax = ['X', 'X', 'X']
+    vitoriao = ['O', 'O', 'O']
     if (board[0]) == (vitoriax) or (board[1]) == (vitoriax) or (board[2]) == (vitoriax):
         print ("X won!")
+        win = True
         break
     elif (collumn1) == (vitoriax) or (collumn2) == (vitoriax) or (collumn3) == (vitoriax):
         print ("X won!")
+        win = True
         break
     elif diagonal1 == (vitoriax) or diagonal2 == (vitoriax):
         print ("X won!")
+        win = True
+        break
+    if (board[0]) == (vitoriao) or (board[1]) == (vitoriao) or (board[2]) == (vitoriao):
+        print ("O won!")
+        win = True
+        break
+    elif (collumn1) == (vitoriao) or (collumn2) == (vitoriao) or (collumn3) == (vitoriao):
+        print ("O won!")
+        win = True
+        break
+    elif diagonal1 == (vitoriao) or diagonal2 == (vitoriao):
+        print ("O won!")
+        win = True
+        break
+    if win = False and jogada >= 7:
+        print ("It's a draw!")
         break
     if (jogada % 2) != 0:
         caracter = iniciante
@@ -49,7 +69,9 @@ while jogada < 9:
     movel = int(input("Type the line that you wanna play: "))
     movec = int(input("Type the collumn that you wanna play: "))
     # checando a validade da jogada #
-    if type(board[movel][movec]) == str:
+    if movel < 0 or movel > 2 or movec < 0 or movec > 2:
+        print ("Invalid move, try again!")
+    elif type(board[movel][movec]) == str:
         print ("Invalid move, try again!")
     else:
         board[movel][movec] = (caracter)
