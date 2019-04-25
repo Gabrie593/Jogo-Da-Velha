@@ -1,5 +1,6 @@
 # Bibliotecas #
 import random
+import sys
 
 # Tabuleiro #
 board = [[1, 2, 3],
@@ -32,33 +33,48 @@ while jogada < 9:
     win = False
     vitoriax = ('X', 'X', 'X')
     vitoriao = ('O', 'O', 'O')
-    if (board[0]) == (vitoriax) or (board[1]) == (vitoriax) or (board[2]) == (vitoriax):
+    vitoriaxcolchete = ['X', 'X', 'X']
+    vitoriaocolchete = ['O', 'O', 'O']
+    if (board[0]) == (vitoriaxcolchete) or (board[1]) == (vitoriaxcolchete) or (board[2]) == (vitoriaxcolchete):
         print ("X won!")
         win = True
-        break
     elif (collumn1) == (vitoriax) or (collumn2) == (vitoriax) or (collumn3) == (vitoriax):
         print ("X won!")
         win = True
-        break
     elif diagonal1 == (vitoriax) or diagonal2 == (vitoriax):
         print ("X won!")
         win = True
-        break
-    if (board[0]) == (vitoriao) or (board[1]) == (vitoriao) or (board[2]) == (vitoriao):
+    if (board[0]) == (vitoriaocolchete) or (board[1]) == (vitoriaocolchete) or (board[2]) == (vitoriaocolchete):
         print ("O won!")
         win = True
-        break
     elif (collumn1) == (vitoriao) or (collumn2) == (vitoriao) or (collumn3) == (vitoriao):
         print ("O won!")
         win = True
-        break
     elif diagonal1 == (vitoriao) or diagonal2 == (vitoriao):
         print ("O won!")
         win = True
-        break
     if win == False and jogada == 9:
         print ("It's a draw!")
-        break
+        win = True
+    if win == True:
+        again = int(input("If you wanna play again, type 1, else, type 0: "))
+        if again == 1:
+            board = [[1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]]
+            collumn1 = (board[0][0]), (board[1][0]), (board[2][0])
+            collumn2 = (board[0][1]), (board[1][1]), (board[2][1])
+            collumn3 = (board[0][2]), (board[1][2]), (board[2][2])
+            diagonal1 = (board[0][0]), (board[1][1]), (board[2][2])
+            diagonal2 = (board[0][2]), (board[1][1]), (board[2][0])
+
+            print ("========================= RESTARTING ========================= ")
+            print (board[0])
+            print (board[1])
+            print (board[2])   
+            jogada = 1
+        elif again == 0:
+            sys.exit()
     if (jogada % 2) != 0:
         caracter = iniciante
         print ("It's", iniciante, "turn!")
@@ -85,6 +101,9 @@ while jogada < 9:
         print (board[0])
         print (board[1])
         print (board[2])
+
+    
+
 
 
 
